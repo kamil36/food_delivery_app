@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/pages/animation_page.dart';
 import 'package:food_delivery_app/routes/router.dart';
 
 void main() {
