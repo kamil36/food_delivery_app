@@ -8,7 +8,7 @@ class AddtoCartPage extends StatefulWidget {
 }
 
 class _AddtoCartPageState extends State<AddtoCartPage> {
-  int counter = 0; // Initial counter value
+  int counter = 0;
 
   void increment() {
     setState(() {
@@ -147,19 +147,26 @@ class _AddtoCartPageState extends State<AddtoCartPage> {
                               onPressed: decrement,
                               icon: Icon(
                                 Icons.remove_circle_outline,
+                                color: Color(0xff472C9D),
                                 size: 20,
                               ),
                             ),
-                            Text(counter.toString()),
+                            Text(
+                              counter.toString(),
+                              style: TextStyle(
+                                color: Color(0xff472C9D),
+                              ),
+                            ),
                             IconButton(
                               onPressed: increment,
                               icon: Icon(
                                 Icons.add_circle_outline,
+                                color: Color(0xff472C9D),
                                 size: 20,
                               ),
                             ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                     Padding(

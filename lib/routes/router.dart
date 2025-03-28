@@ -15,7 +15,7 @@ class MyRoutes {
 
   MyRoutes() {
     router = GoRouter(
-      initialLocation: "/add",
+      initialLocation: "/item",
       routes: [
         GoRoute(
             path: MyRoutes.animationpage,
