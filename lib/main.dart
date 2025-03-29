@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/routes/router.dart';
+import 'package:food_delivery_app/routes/router_config.dart';
 
 void main() {
   runApp(const MyApp());

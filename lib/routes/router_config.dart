@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/pages/addtocart_page.dart';
 import 'package:food_delivery_app/pages/animation_page.dart';
 import 'package:food_delivery_app/pages/home_page.dart';
-import 'package:food_delivery_app/pages/item_page.dart';
+import 'package:food_delivery_app/pages/items_page.dart';
 import 'package:go_router/go_router.dart';
 
 class MyRoutes {
@@ -15,7 +15,7 @@ class MyRoutes {
 
   MyRoutes() {
     router = GoRouter(
-      initialLocation: "/item",
+      initialLocation: "/",
       routes: [
         GoRoute(
             path: MyRoutes.animationpage,
