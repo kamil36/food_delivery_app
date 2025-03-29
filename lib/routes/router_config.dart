@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/models/product_model.dart';
 import 'package:food_delivery_app/pages/addtocart_page.dart';
 import 'package:food_delivery_app/pages/animation_page.dart';
 import 'package:food_delivery_app/pages/home_page.dart';
@@ -28,7 +29,18 @@ class MyRoutes {
         ),
         GoRoute(
           path: MyRoutes.addtocart,
-          builder: (context, state) => AddtoCartPage(),
+          builder: (context, state) {
+            final productMap = state.extra as Map<String, String>?;
+            if (productMap == null) {
+              return Scaffold(
+                body: Center(child: Text("Error: No product data found!")),
+              );
+            }
+
+            final product = Product.fromMap(productMap);
+
+            return AddtoCartPage(product: product);
+          },
         ),
         GoRoute(
           path: MyRoutes.itempage,

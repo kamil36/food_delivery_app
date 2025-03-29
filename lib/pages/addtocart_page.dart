@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/widgets/add_to_cart_page/first_container_section';
+import 'package:food_delivery_app/models/product_model.dart';
+import 'package:food_delivery_app/widgets/add_to_cart_page/first_container_section.dart';
 import 'package:food_delivery_app/widgets/add_to_cart_page/second_container_section.dart';
 
 class AddtoCartPage extends StatefulWidget {
-  const AddtoCartPage({super.key});
+  final Product product;
+  const AddtoCartPage({super.key, required this.product});
 
   @override
   State<AddtoCartPage> createState() => _AddtoCartPageState();
 }
+
+final List<Map<String, String>> products = [];
 
 class _AddtoCartPageState extends State<AddtoCartPage> {
   @override
@@ -16,8 +20,8 @@ class _AddtoCartPageState extends State<AddtoCartPage> {
       child: Scaffold(
         body: Stack(
           children: [
-            FirstContainerSection(),
-            SecondContainerSection(),
+            FirstContainerSection(image: widget.product.image),
+            SecondContainerSection(product: widget.product),
           ],
         ),
       ),

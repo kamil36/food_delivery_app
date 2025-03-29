@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/routes/router_config.dart';
 import 'grid_tile.dart';
 import 'package:go_router/go_router.dart';
 
@@ -33,7 +34,7 @@ class GridViewSection extends StatelessWidget {
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-              context.go('/add');
+              context.go(MyRoutes.addtocart, extra: products[index]);
             },
             child: GridTileWidget(
               image: products[index]["image"]!,

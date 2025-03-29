@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/models/product_model.dart';
 import 'package:food_delivery_app/widgets/add_to_cart_page/extra_item_section.dart';
 
 class SecondContainerSection extends StatefulWidget {
-  const SecondContainerSection({super.key});
+  final Product product;
+
+  const SecondContainerSection({super.key, required this.product});
 
   @override
   State<SecondContainerSection> createState() => _SecondContainerSectionState();
@@ -19,7 +22,7 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
 
   void decrement() {
     setState(() {
-      if (counter > 0) {
+      if (counter > 1) {
         counter--;
       }
     });
@@ -75,7 +78,7 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
                     ),
                   ),
                   Text(
-                    "\$20",
+                    widget.product.price,
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       color: Color(0xffC9AA05),
@@ -92,7 +95,7 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
                 Padding(
                   padding: const EdgeInsets.only(left: 30),
                   child: Text(
-                    "Beef Burger",
+                    widget.product.title,
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       color: Color(0xff000000),
@@ -132,7 +135,7 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                "Big juicy beef burger with cheese, lettuce, tomato, onions and special sauce !",
+                "Delicious ${widget.product.title} with fresh ingredients!",
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   color: Color(0xff595959),
@@ -207,4 +210,3 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
     );
   }
 }
-

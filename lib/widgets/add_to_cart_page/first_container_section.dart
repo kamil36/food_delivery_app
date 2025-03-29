@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/routes/router_config.dart';
+import 'package:go_router/go_router.dart';
 
 class FirstContainerSection extends StatelessWidget {
+  final String image;
+  const FirstContainerSection({super.key, required this.image});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,17 +29,16 @@ class FirstContainerSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          BackButton(
-            color: Colors.white,
-          
-          ),
+          IconButton(
+              onPressed: () => context.go(MyRoutes.homepage),
+              icon: Icon(Icons.arrow_back)),
           SizedBox(
             height: 50,
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Image.asset(
-              'assets/img/burger.png',
+              image,
               height: 140,
               fit: BoxFit.contain,
             ),
