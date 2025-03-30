@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/routes/router_config.dart';
+import 'package:go_router/go_router.dart';
 
 class ItemButtonSection extends StatelessWidget {
   const ItemButtonSection({super.key});
@@ -8,7 +10,9 @@ class ItemButtonSection extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 50),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          context.go(MyRoutes.razorpay);
+        },
         child: Container(
           height: 50,
           width: 230,

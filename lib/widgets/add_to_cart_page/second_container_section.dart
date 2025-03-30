@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/models/product_model.dart';
+import 'package:food_delivery_app/routes/router_config.dart';
 import 'package:food_delivery_app/widgets/add_to_cart_page/extra_item_section.dart';
+import 'package:go_router/go_router.dart';
 
 class SecondContainerSection extends StatefulWidget {
   final Product product;
@@ -182,7 +184,9 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
             Padding(
               padding: const EdgeInsets.only(left: 50),
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  context.go(MyRoutes.itempage);
+                },
                 child: Container(
                   height: 50,
                   width: 230,

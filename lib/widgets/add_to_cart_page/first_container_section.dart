@@ -29,9 +29,10 @@ class FirstContainerSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          IconButton(
-              onPressed: () => context.go(MyRoutes.homepage),
-              icon: Icon(Icons.arrow_back)),
+          BackButton(
+            color: Colors.white,
+            onPressed: () => context.go(MyRoutes.homepage),
+          ),
           SizedBox(
             height: 50,
           ),

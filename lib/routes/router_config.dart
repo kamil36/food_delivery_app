@@ -4,13 +4,16 @@ import 'package:food_delivery_app/pages/addtocart_page.dart';
 import 'package:food_delivery_app/pages/animation_page.dart';
 import 'package:food_delivery_app/pages/home_page.dart';
 import 'package:food_delivery_app/pages/items_page.dart';
+import 'package:food_delivery_app/razorpay/razorpay.dart';
 import 'package:go_router/go_router.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class MyRoutes {
   static String animationpage = "/";
   static String homepage = "/home";
   static String addtocart = "/add";
   static String itempage = "/item";
+  static String razorpay = "/razorpay";
 
   late final GoRouter router;
 
@@ -45,6 +48,10 @@ class MyRoutes {
         GoRoute(
           path: MyRoutes.itempage,
           builder: (context, state) => ItemPage(),
+        ),
+        GoRoute(
+          path: MyRoutes.razorpay,
+          builder: (context, state) => MyRazorPay(),
         ),
       ],
       errorBuilder: (context, state) {

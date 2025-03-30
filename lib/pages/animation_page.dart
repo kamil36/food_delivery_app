@@ -11,25 +11,30 @@ class AnimationPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xff492e9e),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ImageSection(),
-              SizedBox(
-                height: 40,
-              ),
-              TextSection(text: "Enjoy"),
-              SizedBox(
-                height: 20,
-              ),
-              TextSection(text: "Your Food"),
-              SizedBox(
-                height: 20,
-              ),
-              ButtonSection(),
-            ],
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 40,
+                ),
+                ImageSection(),
+                SizedBox(
+                  height: 40,
+                ),
+                TextSection(text: "Enjoy"),
+                SizedBox(
+                  height: 20,
+                ),
+                TextSection(text: "Your Food"),
+                SizedBox(
+                  height: 20,
+                ),
+                ButtonSection(),
+              ],
+            ),
           ),
         ),
       ),
