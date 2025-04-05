@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/pages/navigate.dart';
 import 'package:food_delivery_app/widgets/animation_page/button_section.dart';
 import 'package:food_delivery_app/widgets/animation_page/image_section.dart';
 import 'package:food_delivery_app/widgets/animation_page/text_section.dart';

@@ -21,6 +21,7 @@ class ListViewSection extends StatelessWidget {
       child: SizedBox(
         height: 100,
         child: ListView(
+          shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           physics: const BouncingScrollPhysics(),
           children: List.generate(items.length, (index) {

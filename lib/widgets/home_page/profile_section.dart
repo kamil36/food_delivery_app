@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/pages/profile.dart';
+import 'package:food_delivery_app/routes/router_config.dart';
 import 'package:go_router/go_router.dart';
 
 class ProfileSection extends StatelessWidget {
@@ -13,7 +15,9 @@ class ProfileSection extends StatelessWidget {
         children: [
           TextButton(
               onPressed: () {
-                context.go('/');
+                if (GoRouterState.of(context).uri.toString() != '/') {
+                  context.go('/');
+                }
               },
               child: Text(
                 'Menu',
@@ -24,10 +28,15 @@ class ProfileSection extends StatelessWidget {
                   fontSize: 25,
                 ),
               )),
-          CircleAvatar(
-            radius: 25,
-            backgroundImage: AssetImage(
-              'assets/img/profile.jpeg',
+          InkWell(
+            onTap: () {
+              context.push(MyRoutes.profile);
+            },
+            child: CircleAvatar(
+              radius: 25,
+              backgroundImage: AssetImage(
+                'assets/img/profile.jpeg',
+              ),
             ),
           ),
         ],

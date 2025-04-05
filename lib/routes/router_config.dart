@@ -4,9 +4,10 @@ import 'package:food_delivery_app/pages/addtocart_page.dart';
 import 'package:food_delivery_app/pages/animation_page.dart';
 import 'package:food_delivery_app/pages/home_page.dart';
 import 'package:food_delivery_app/pages/items_page.dart';
+import 'package:food_delivery_app/pages/profile.dart';
 import 'package:food_delivery_app/razorpay/razorpay.dart';
+import 'package:food_delivery_app/widgets/home_page/bottom_navigation_bar.dart';
 import 'package:go_router/go_router.dart';
-import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class MyRoutes {
   static String animationpage = "/";
@@ -14,6 +15,8 @@ class MyRoutes {
   static String addtocart = "/add";
   static String itempage = "/item";
   static String razorpay = "/razorpay";
+  static String profile = "/profile";
+  static String navigate = "/nav";
 
   late final GoRouter router;
 
@@ -39,7 +42,6 @@ class MyRoutes {
                 body: Center(child: Text("Error: No product data found!")),
               );
             }
-
             final product = Product.fromMap(productMap);
 
             return AddtoCartPage(product: product);
@@ -51,11 +53,21 @@ class MyRoutes {
         ),
         GoRoute(
           path: MyRoutes.razorpay,
-          builder: (context, state) => MyRazorPay(),
+          builder: (context, state) => RazorpayPage(),
+        ),
+        GoRoute(
+          path: MyRoutes.profile,
+          builder: (context, state) => ProfilePage(),
+        ),
+        GoRoute(
+          path: MyRoutes.navigate,
+          builder: (context, state) => NavigationPage(),
         ),
       ],
       errorBuilder: (context, state) {
-        return Text("Error: ${state.error}");
+        return Text(
+          "Error: ${state.error}",
+        );
       },
     );
   }

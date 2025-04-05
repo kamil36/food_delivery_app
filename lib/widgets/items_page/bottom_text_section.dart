@@ -19,7 +19,7 @@ class BottomTextSection extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          context.go(MyRoutes.homepage);
+          context.go(MyRoutes.navigate);
         },
       ),
     );

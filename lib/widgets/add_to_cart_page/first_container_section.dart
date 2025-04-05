@@ -31,7 +31,7 @@ class FirstContainerSection extends StatelessWidget {
         children: [
           BackButton(
             color: Colors.white,
-            onPressed: () => context.go(MyRoutes.homepage),
+            onPressed: () => context.go(MyRoutes.navigate),
           ),
           SizedBox(
             height: 50,

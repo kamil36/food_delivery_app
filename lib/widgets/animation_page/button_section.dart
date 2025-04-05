@@ -8,7 +8,7 @@ class ButtonSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        context.go('/home');
+        context.go('/nav');
       },
       child: Text(
         "Get Started",

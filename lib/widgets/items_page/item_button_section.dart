@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/models/product_model.dart';
 import 'package:food_delivery_app/routes/router_config.dart';
 import 'package:go_router/go_router.dart';
 
-class ItemButtonSection extends StatelessWidget {
-  const ItemButtonSection({super.key});
+class ItemButtonSection extends StatefulWidget {
+  final int? index;
+  const ItemButtonSection({super.key, this.index});
 
+  @override
+  State<ItemButtonSection> createState() => _ItemButtonSectionState();
+}
+
+class _ItemButtonSectionState extends State<ItemButtonSection> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 50),
       child: InkWell(
-        onTap: () {
-          context.go(MyRoutes.razorpay);
-        },
+       onTap: () {
+  
+  context.go(
+    MyRoutes.razorpay,
+  );
+},
+
         child: Container(
           height: 50,
           width: 230,
