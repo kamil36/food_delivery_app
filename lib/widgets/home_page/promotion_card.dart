@@ -8,7 +8,7 @@ class PromotionCardSection extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
-        height: 120,
+        height: 150,
         decoration: BoxDecoration(
             color: Color(0xff9577F2),
             border: Border.all(color: Colors.transparent),
@@ -31,6 +31,9 @@ class PromotionCardSection extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text(
                     "Free box of Fries",
                     style: TextStyle(
@@ -39,6 +42,9 @@ class PromotionCardSection extends StatelessWidget {
                       fontFamily: 'Poppins',
                       color: Colors.white,
                     ),
+                  ),
+                  SizedBox(
+                    height: 5,
                   ),
                   Text(
                     "on all orders above \$150",
@@ -56,7 +62,7 @@ class PromotionCardSection extends StatelessWidget {
               padding: const EdgeInsets.only(right: 20),
               child: Image.asset(
                 'assets/img/french_fries.png',
-                height: 100,
+                height: 120,
               ),
             ),
           ],

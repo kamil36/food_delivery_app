@@ -6,7 +6,7 @@ class PaymentCardSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
+      height: 120,
       width: double.infinity,
       decoration: BoxDecoration(
           color: Color(0xffe6e6e6), borderRadius: BorderRadius.circular(20)),
@@ -15,10 +15,10 @@ class PaymentCardSection extends StatelessWidget {
         children: [
           Image.asset(
             'assets/img/visa.png',
-            height: 50,
+            height: 70,
           ),
           SizedBox(
-            width: 10,
+            width: 20,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -31,6 +31,9 @@ class PaymentCardSection extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   fontSize: 18,
                 ),
+              ),
+              SizedBox(
+                height: 10,
               ),
               Text(
                 "0274 7414 ***",

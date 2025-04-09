@@ -33,6 +33,10 @@ class _NavigationPageState extends State<NavigationPage> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        selectedFontSize: 18,
+        unselectedFontSize: 15,
+        elevation: 0,
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         backgroundColor: Colors.white,

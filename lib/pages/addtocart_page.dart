@@ -20,7 +20,7 @@ class _AddtoCartPageState extends State<AddtoCartPage> {
       child: Scaffold(
         body: Stack(
           children: [
-            FirstContainerSection(image: widget.product.image),
+            FirstContainerSection(product: widget.product),
             SecondContainerSection(product: widget.product),
           ],
         ),

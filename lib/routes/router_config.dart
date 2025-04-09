@@ -39,7 +39,16 @@ class MyRoutes {
             final productMap = state.extra as Map<String, String>?;
             if (productMap == null) {
               return Scaffold(
-                body: Center(child: Text("Error: No product data found!")),
+                body: Center(
+                    child: Text(
+                  "Error: No product data found!",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Poppins',
+                    color: Colors.black,
+                  ),
+                )),
               );
             }
             final product = Product.fromMap(productMap);

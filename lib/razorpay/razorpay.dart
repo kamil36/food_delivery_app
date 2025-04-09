@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/routes/router_config.dart';
+import 'package:go_router/go_router.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
-
-
 
 class RazorpayPage extends StatefulWidget {
   @override
@@ -30,9 +30,7 @@ class _RazorpayPageState extends State<RazorpayPage> {
         'contact': '9876543210',
         'email': 'example@gmail.com',
       },
-      'theme': {
-        'color': '#0f9d58'
-      },
+      'theme': {'color': '#0f9d58'},
     };
 
     try {
@@ -78,6 +76,9 @@ class _RazorpayPageState extends State<RazorpayPage> {
     return Scaffold(
       backgroundColor: Color(0xfff4f4f4),
       appBar: AppBar(
+        leading: BackButton(
+          onPressed: () => context.go(MyRoutes.itempage),
+        ),
         title: Text("Payment Page"),
         backgroundColor: Colors.green.shade600,
         elevation: 0,
@@ -87,13 +88,15 @@ class _RazorpayPageState extends State<RazorpayPage> {
           padding: const EdgeInsets.all(20),
           child: Card(
             elevation: 8,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             child: Padding(
               padding: const EdgeInsets.all(24.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.shopping_cart_checkout, size: 60, color: Colors.green.shade800),
+                  Icon(Icons.shopping_cart_checkout,
+                      size: 60, color: Colors.green.shade800),
                   SizedBox(height: 20),
                   Text(
                     "Buy Product",
@@ -102,7 +105,9 @@ class _RazorpayPageState extends State<RazorpayPage> {
                   SizedBox(height: 10),
                   Text("Get access to all features with the premium plan."),
                   SizedBox(height: 20),
-                  Text("₹999", style: TextStyle(fontSize: 28, color: Colors.green.shade800)),
+                  Text("₹999",
+                      style: TextStyle(
+                          fontSize: 28, color: Colors.green.shade800)),
                   SizedBox(height: 25),
                   SizedBox(
                     width: double.infinity,

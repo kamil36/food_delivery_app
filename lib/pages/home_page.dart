@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               SizedBox(
-                height: 40,
+                height: 20,
               ),
               ProfileSection(),
               SizedBox(

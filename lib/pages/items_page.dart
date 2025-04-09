@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/widgets/home_page/bottom_navigation_bar.dart';
 import 'package:food_delivery_app/widgets/items_page/bottom_text_section.dart';
 import 'package:food_delivery_app/widgets/items_page/item_button_section.dart';
 import 'package:food_delivery_app/widgets/items_page/item_section.dart';
@@ -15,15 +14,7 @@ class ItemPage extends StatefulWidget {
   State<ItemPage> createState() => _ItemPageState();
 }
 
-int _selectedIndex = 0;
-
 class _ItemPageState extends State<ItemPage> {
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -66,7 +57,7 @@ class _ItemPageState extends State<ItemPage> {
                 ),
                 TotalSection(),
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 ItemButtonSection(),
                 SizedBox(

@@ -15,7 +15,6 @@ class ItemSection extends StatefulWidget {
   State<ItemSection> createState() => _ItemSectionState();
 }
 
-
 class _ItemSectionState extends State<ItemSection> {
   int counter = 0;
 
@@ -32,8 +31,6 @@ class _ItemSectionState extends State<ItemSection> {
       }
     });
   }
-
- 
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +56,7 @@ class _ItemSectionState extends State<ItemSection> {
                 fontFamily: 'Poppins',
                 color: Color(0xff000000),
                 fontWeight: FontWeight.w500,
-                fontSize: 16,
+                fontSize: 20,
               ),
             ),
             Text(
@@ -68,7 +65,7 @@ class _ItemSectionState extends State<ItemSection> {
                 fontFamily: 'Poppins',
                 color: Color(0xffC9AA05),
                 fontWeight: FontWeight.w700,
-                fontSize: 17,
+                fontSize: 18,
               ),
             ),
             Row(
@@ -84,6 +81,7 @@ class _ItemSectionState extends State<ItemSection> {
                 Text(
                   counter.toString(),
                   style: TextStyle(
+                    fontSize: 20,
                     color: Color(0xff472C9D),
                   ),
                 ),

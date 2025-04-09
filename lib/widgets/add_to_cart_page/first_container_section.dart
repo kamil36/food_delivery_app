@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/models/product_model.dart';
 import 'package:food_delivery_app/routes/router_config.dart';
 import 'package:go_router/go_router.dart';
 
 class FirstContainerSection extends StatelessWidget {
-  final String image;
-  const FirstContainerSection({super.key, required this.image});
+  // final String image;
+  final Product product;
+
+  const FirstContainerSection({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +37,13 @@ class FirstContainerSection extends StatelessWidget {
             onPressed: () => context.go(MyRoutes.navigate),
           ),
           SizedBox(
-            height: 50,
+            height: 20,
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Image.asset(
-              image,
-              height: 140,
+              product.image,
+              height: 200,
               fit: BoxFit.contain,
             ),
           ),

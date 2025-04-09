@@ -33,7 +33,7 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: MediaQuery.of(context).size.height / 2.8,
+      top: MediaQuery.of(context).size.height / 2.5,
       left: 0,
       right: 0,
       child: Container(
@@ -55,17 +55,15 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(103, 50),
+                        fixedSize: Size(110, 60),
                         backgroundColor: Color(0xff472C9D)),
                     onPressed: () {},
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Image.asset(
                           'assets/img/Star.png',
                           height: 20,
-                        ),
-                        SizedBox(
-                          width: 4,
                         ),
                         Text(
                           "4.8",
@@ -102,7 +100,7 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
                       fontFamily: 'Poppins',
                       color: Color(0xff000000),
                       fontWeight: FontWeight.w500,
-                      fontSize: 22,
+                      fontSize: 25,
                     ),
                   ),
                 ),
@@ -119,6 +117,7 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
                     Text(
                       counter.toString(),
                       style: TextStyle(
+                        fontSize: 20,
                         color: Color(0xff472C9D),
                       ),
                     ),
@@ -134,6 +133,9 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
                 ),
               ],
             ),
+            SizedBox(
+              height: 10,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
@@ -142,7 +144,7 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
                   fontFamily: 'Poppins',
                   color: Color(0xff595959),
                   fontWeight: FontWeight.w300,
-                  fontSize: 15,
+                  fontSize: 16,
                 ),
               ),
             ),
@@ -162,7 +164,7 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -179,7 +181,7 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
               ],
             ),
             SizedBox(
-              height: 20,
+              height: 50,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 50),
