@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/routes/router_config.dart';
 import 'package:go_router/go_router.dart';
 
 class ButtonSection extends StatelessWidget {
@@ -8,7 +9,7 @@ class ButtonSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        context.go('/nav');
+        context.go(MyRoutes.loginpage);
       },
       child: Text(
         "Get Started",

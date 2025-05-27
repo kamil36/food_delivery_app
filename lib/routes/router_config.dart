@@ -1,10 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/models/product_model.dart';
 import 'package:food_delivery_app/pages/addtocart_page.dart';
 import 'package:food_delivery_app/pages/animation_page.dart';
 import 'package:food_delivery_app/pages/home_page.dart';
 import 'package:food_delivery_app/pages/items_page.dart';
+import 'package:food_delivery_app/pages/login.dart';
 import 'package:food_delivery_app/pages/profile.dart';
+import 'package:food_delivery_app/pages/signup.dart';
 import 'package:food_delivery_app/razorpay/razorpay.dart';
 import 'package:food_delivery_app/widgets/home_page/bottom_navigation_bar.dart';
 import 'package:go_router/go_router.dart';
@@ -12,6 +16,8 @@ import 'package:go_router/go_router.dart';
 class MyRoutes {
   static String animationpage = "/";
   static String homepage = "/home";
+  static String loginpage = "/login";
+  static String signuppage = "/signup";
   static String addtocart = "/add";
   static String itempage = "/item";
   static String razorpay = "/razorpay";
@@ -19,15 +25,26 @@ class MyRoutes {
   static String navigate = "/nav";
 
   late final GoRouter router;
+  final _firebaseauth = FirebaseAuth.instance;
 
   MyRoutes() {
     router = GoRouter(
-      initialLocation: "/",
+      initialLocation: animationpage,
       routes: [
         GoRoute(
             path: MyRoutes.animationpage,
             builder: (context, state) {
               return AnimationPage();
+            }),
+        GoRoute(
+            path: MyRoutes.signuppage,
+            builder: (context, state) {
+              return SignUpPage();
+            }),
+        GoRoute(
+            path: MyRoutes.loginpage,
+            builder: (context, state) {
+              return LoginPage();
             }),
         GoRoute(
           path: MyRoutes.homepage,
@@ -73,6 +90,16 @@ class MyRoutes {
           builder: (context, state) => NavigationPage(),
         ),
       ],
+      // redirect: (context, state) {
+      //   if (_firebaseauth.currentUser == null) {
+      //     return navigate;
+      //   }
+      //   if (_firebaseauth.currentUser != null) {
+      //     return navigate;
+      //   } else {
+      //     return null;
+      //   }
+      // },
       errorBuilder: (context, state) {
         return Text(
           "Error: ${state.error}",
