@@ -17,7 +17,7 @@ class FirstContainerSection extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: RadialGradient(
           colors: [
-            Color(0xff959595B8),
+            Color(0xff959595b8),
             Color(0xff462B9C),
           ],
           radius: 0.6,

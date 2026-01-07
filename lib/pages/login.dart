@@ -22,8 +22,8 @@ class _LoginPageState extends State<LoginPage> {
   bool _isPasswordVisible = false;
 
   loginform() async {
-    final email = _emailController.text.trim();
-    final password = _passController.text.trim();
+    // final email = _emailController.text.trim();
+    // final password = _passController.text.trim();
 
     if (_formKey.currentState?.validate() ?? false) {
       try {
@@ -217,7 +217,6 @@ class _LoginPageState extends State<LoginPage> {
                         Text(
                           "Don't have an account?",
                           style: CustomStyle.normalbold.merge(const TextStyle(
-                            // color: Colors.black,
                             fontSize: 16,
                           )),
                         ),

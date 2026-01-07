@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/models/product_model.dart';
 import 'package:food_delivery_app/pages/addtocart_page.dart';
@@ -90,16 +89,19 @@ class MyRoutes {
           builder: (context, state) => NavigationPage(),
         ),
       ],
-      // redirect: (context, state) {
-      //   if (_firebaseauth.currentUser == null) {
-      //     return navigate;
-      //   }
-      //   if (_firebaseauth.currentUser != null) {
-      //     return navigate;
-      //   } else {
-      //     return null;
-      //   }
-      // },
+      redirect: (context, state) {
+        final isAuthenticated = _firebaseauth.currentUser != null;
+        final isAuthRoute = state.matchedLocation == signuppage ||
+            state.matchedLocation == animationpage;
+
+        if (!isAuthenticated && !isAuthRoute) {
+          return loginpage;
+        }
+        if (isAuthenticated && isAuthRoute) {
+          return homepage;
+        }
+        return null;
+      },
       errorBuilder: (context, state) {
         return Text(
           "Error: ${state.error}",

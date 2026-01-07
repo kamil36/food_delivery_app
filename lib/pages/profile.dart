@@ -1,7 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/routes/router_config.dart';
 import 'package:go_router/go_router.dart';
 
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,8 +79,9 @@ class ProfilePage extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.logout, color: Colors.red),
                 title: Text("Logout"),
-                onTap: () {
-                  context.go('/');
+                onTap: () async {
+                  await FirebaseAuth.instance.signOut();
+                  context.go(MyRoutes.loginpage);
                 },
               ),
             ],

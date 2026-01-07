@@ -1,10 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/models/product_model.dart';
-import 'package:food_delivery_app/pages/animation_page.dart';
-import 'package:food_delivery_app/pages/items_page.dart';
-import 'package:food_delivery_app/pages/navigate.dart';
-import 'package:food_delivery_app/pages/profile.dart';
-import 'package:food_delivery_app/widgets/home_page/bottom_navigation_bar.dart';
 import 'package:food_delivery_app/widgets/home_page/grid_view_section.dart';
 import 'package:food_delivery_app/widgets/home_page/list_view_section.dart';
 import 'package:food_delivery_app/widgets/home_page/profile_section.dart';

@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class RazorpayPage extends StatefulWidget {
+  const RazorpayPage({super.key});
+
   @override
   _RazorpayPageState createState() => _RazorpayPageState();
 }
