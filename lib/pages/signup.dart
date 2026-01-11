@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:food_delivery_app/contant/const.dart';
+import 'package:food_delivery_app/constant/const.dart';
 import 'package:food_delivery_app/routes/router_config.dart';
 import 'package:go_router/go_router.dart';
 

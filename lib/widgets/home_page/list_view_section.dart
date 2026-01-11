@@ -1,62 +1,66 @@
 import 'package:flutter/material.dart';
-
-final List<Map<String, String>> items = [
-  {"image": "assets/img/plate.png", 'title': 'All'},
-  {"image": "assets/img/burger.png", 'title': 'Burger'},
-  {"image": "assets/img/pizza.png", 'title': 'Pizza'},
-  {"image": "assets/img/dessert.png", 'title': 'Dessert'},
-];
+import 'package:food_delivery_app/API/products%20models/api_model.dart';
+import 'package:food_delivery_app/models/product_model.dart' hide Product;
 
 class ListViewSection extends StatelessWidget {
+  final List<Product> products;
   final Function(int) onTileTapped;
   final int selectedTileIndex;
 
-  const ListViewSection(
-      {super.key, required this.onTileTapped, required this.selectedTileIndex});
+  const ListViewSection({
+    super.key,
+    required this.products,
+    required this.onTileTapped,
+    required this.selectedTileIndex,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 5),
-      child: SizedBox(
-        height: 100,
-        child: ListView(
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          physics: const BouncingScrollPhysics(),
-          children: List.generate(items.length, (index) {
-            return InkWell(
-              onTap: () => onTileTapped(index),
-              child: Column(
-                children: [
-                  Container(
-                    height: 70,
-                    width: 70,
-                    margin: EdgeInsets.symmetric(horizontal: 5),
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: selectedTileIndex == index
-                          ? Color(0xff462B9C)
-                          : Color(0xffEBE8E8),
-                    ),
-                    child: Image.asset(items[index]["image"]!, height: 50),
+    return SizedBox(
+      height: 110,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: products.length,
+        itemBuilder: (context, index) {
+          final product = products[index];
+
+          return InkWell(
+            onTap: () => onTileTapped(index),
+            child: Column(
+              children: [
+                Container(
+                  height: 70,
+                  width: 70,
+                  margin: const EdgeInsets.symmetric(horizontal: 6),
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: selectedTileIndex == index
+                        ? const Color(0xff462B9C)
+                        : const Color(0xffEBE8E8),
                   ),
-                  Text(
-                    items[index]["title"].toString(),
+                  child: Image.network(product.thumbnail, fit: BoxFit.cover),
+                ),
+                const SizedBox(height: 4),
+                SizedBox(
+                  width: 70,
+                  child: Text(
+                    product.title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 15,
+                      fontSize: 13,
                       color: selectedTileIndex == index
-                          ? Color(0xff462B9C)
-                          : Color(0xff868585),
+                          ? const Color(0xff462B9C)
+                          : const Color(0xff868585),
                     ),
                   ),
-                ],
-              ),
-            );
-          }),
-        ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

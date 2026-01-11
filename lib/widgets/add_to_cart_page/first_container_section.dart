@@ -1,13 +1,14 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/API/products%20models/api_model.dart';
 import 'package:food_delivery_app/models/product_model.dart';
 import 'package:food_delivery_app/routes/router_config.dart';
 import 'package:go_router/go_router.dart';
 
 class FirstContainerSection extends StatelessWidget {
-  // final String image;
   final Product product;
-
-  const FirstContainerSection({super.key, required this.product});
+  FirstContainerSection({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +42,8 @@ class FirstContainerSection extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Image.asset(
-              product.image,
+            child: Image.network(
+              product.thumbnail,
               height: 200,
               fit: BoxFit.contain,
             ),

@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:food_delivery_app/contant/const.dart';
+import 'package:food_delivery_app/constant/const.dart';
 import 'package:food_delivery_app/routes/router_config.dart';
 import 'package:food_delivery_app/widgets/login_page/checkbox.dart';
 import 'package:go_router/go_router.dart';
@@ -22,15 +22,12 @@ class _LoginPageState extends State<LoginPage> {
   bool _isPasswordVisible = false;
 
   loginform() async {
-    // final email = _emailController.text.trim();
-    // final password = _passController.text.trim();
-
     if (_formKey.currentState?.validate() ?? false) {
       try {
         await _auth.signInWithEmailAndPassword(
             email: _emailController.text.trim(),
             password: _passController.text.trim());
-        context.go(MyRoutes.homepage);
+        context.go(MyRoutes.navigate);
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text("Account Login Successfully!"),
         ));
@@ -174,7 +171,9 @@ class _LoginPageState extends State<LoginPage> {
                           title: 'Remember Me',
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.go(MyRoutes.forgotpasswordpage);
+                          },
                           child: Text(
                             "Forgot Password?",
                             style: CustomStyle.normalbold.merge(const TextStyle(

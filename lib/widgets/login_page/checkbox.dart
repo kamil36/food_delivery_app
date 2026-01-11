@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/contant/const.dart';
+import 'package:food_delivery_app/constant/const.dart';
 
 class MyCheckBox extends StatefulWidget {
   const MyCheckBox({

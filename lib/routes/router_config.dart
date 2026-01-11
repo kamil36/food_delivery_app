@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/API/products%20models/api_model.dart';
 import 'package:food_delivery_app/models/product_model.dart';
 import 'package:food_delivery_app/pages/addtocart_page.dart';
 import 'package:food_delivery_app/pages/animation_page.dart';
+import 'package:food_delivery_app/pages/forgot_password_page.dart';
 import 'package:food_delivery_app/pages/home_page.dart';
 import 'package:food_delivery_app/pages/items_page.dart';
 import 'package:food_delivery_app/pages/login.dart';
@@ -22,6 +24,7 @@ class MyRoutes {
   static String razorpay = "/razorpay";
   static String profile = "/profile";
   static String navigate = "/nav";
+  static String forgotpasswordpage = "/forgotpassword";
 
   late final GoRouter router;
   final _firebaseauth = FirebaseAuth.instance;
@@ -52,22 +55,17 @@ class MyRoutes {
         GoRoute(
           path: MyRoutes.addtocart,
           builder: (context, state) {
-            final productMap = state.extra as Map<String, String>?;
-            if (productMap == null) {
+            final product = state.extra as Product?;
+            if (product == null) {
               return Scaffold(
                 body: Center(
-                    child: Text(
-                  "Error: No product data found!",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: 'Poppins',
-                    color: Colors.black,
+                  child: Text(
+                    "Error: No product data found!",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                   ),
-                )),
+                ),
               );
             }
-            final product = Product.fromMap(productMap);
 
             return AddtoCartPage(product: product);
           },
@@ -87,6 +85,10 @@ class MyRoutes {
         GoRoute(
           path: MyRoutes.navigate,
           builder: (context, state) => NavigationPage(),
+        ),
+        GoRoute(
+          path: MyRoutes.forgotpasswordpage,
+          builder: (context, state) => ForgotPasswordPage(),
         ),
       ],
       redirect: (context, state) {

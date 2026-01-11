@@ -98,7 +98,7 @@ class _ItemSectionState extends State<ItemSection> {
           ],
         ),
         IconButton(
-          onPressed: increment,
+          onPressed: null,
           icon: Icon(
             Icons.cancel_outlined,
             color: Color(0xffFF000F),

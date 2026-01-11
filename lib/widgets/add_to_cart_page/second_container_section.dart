@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/API/products%20models/api_model.dart';
 import 'package:food_delivery_app/models/product_model.dart';
+import 'package:food_delivery_app/pages/home_page.dart';
 import 'package:food_delivery_app/routes/router_config.dart';
 import 'package:food_delivery_app/widgets/add_to_cart_page/extra_item_section.dart';
 import 'package:go_router/go_router.dart';
@@ -7,7 +9,7 @@ import 'package:go_router/go_router.dart';
 class SecondContainerSection extends StatefulWidget {
   final Product product;
 
-  const SecondContainerSection({super.key, required this.product});
+  SecondContainerSection({super.key, required this.product});
 
   @override
   State<SecondContainerSection> createState() => _SecondContainerSectionState();
@@ -24,7 +26,7 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
 
   void decrement() {
     setState(() {
-      if (counter > 1) {
+      if (counter > 0) {
         counter--;
       }
     });
@@ -78,7 +80,7 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
                     ),
                   ),
                   Text(
-                    widget.product.price,
+                    "\$${widget.product.price}",
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       color: Color(0xffC9AA05),

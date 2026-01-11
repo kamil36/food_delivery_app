@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/API/products%20models/api_model.dart';
 import 'package:food_delivery_app/routes/router_config.dart';
 import 'grid_tile.dart';
 import 'package:go_router/go_router.dart';
@@ -15,7 +16,9 @@ final List<Map<String, String>> products = [
 ];
 
 class GridViewSection extends StatelessWidget {
-  const GridViewSection({super.key});
+  final List<Product> products;
+
+  const GridViewSection({super.key, required this.products});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,7 @@ class GridViewSection extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: GridView.builder(
         shrinkWrap: true,
-        physics: const BouncingScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 10,
@@ -32,14 +35,16 @@ class GridViewSection extends StatelessWidget {
         ),
         itemCount: products.length,
         itemBuilder: (context, index) {
+          final product = products[index];
           return InkWell(
             onTap: () {
-              context.go(MyRoutes.addtocart, extra: products[index]);
+              final product = products[index];
+              context.go(MyRoutes.addtocart, extra: product);
             },
             child: GridTileWidget(
-              image: products[index]["image"]!,
-              title: products[index]["title"]!,
-              price: products[index]["price"]!,
+              image: product.thumbnail,
+              title: product.title,
+              price: "\$${product.price}",
             ),
           );
         },
