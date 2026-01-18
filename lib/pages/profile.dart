@@ -19,6 +19,7 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
         centerTitle: true,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -50,7 +51,7 @@ class ProfilePage extends StatelessWidget {
                 title: Text("Order History"),
                 trailing: Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  // Navigate to order history
+                  context.push('/order_history');
                 },
               ),
               Divider(),
@@ -60,7 +61,9 @@ class ProfilePage extends StatelessWidget {
                 leading: Icon(Icons.payment, color: Colors.green),
                 title: Text("Payment Methods"),
                 trailing: Icon(Icons.arrow_forward_ios),
-                onTap: () {},
+                onTap: () {
+                  context.push('/payment_methods');
+                },
               ),
               Divider(),
 
@@ -70,7 +73,7 @@ class ProfilePage extends StatelessWidget {
                 title: Text("Settings"),
                 trailing: Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  // Navigate to settings
+                  context.push('/settings');
                 },
               ),
               Divider(),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/API/products%20models/api_model.dart';
-import 'package:food_delivery_app/models/product_model.dart' hide Product;
 
 class ListViewSection extends StatelessWidget {
   final List<Product> products;

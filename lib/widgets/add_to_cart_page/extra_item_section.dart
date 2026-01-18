@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class ExtraItem extends StatelessWidget {
   final String img;
-  const ExtraItem({super.key, required this.img});
+  final bool isNetworkImage;
+  const ExtraItem({super.key, required this.img, this.isNetworkImage = false});
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +18,19 @@ class ExtraItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20)),
             height: 70,
             width: 70,
-            child: Image.asset(
-              img,
-              fit: BoxFit.contain,
-            ),
+            child: isNetworkImage
+                ? Image.network(
+                    img,
+                    fit: BoxFit.contain,
+                    errorBuilder: (context, error, stackTrace) => Image.asset(
+                      'assets/img/bread.png',
+                      fit: BoxFit.contain,
+                    ),
+                  )
+                : Image.asset(
+                    img,
+                    fit: BoxFit.contain,
+                  ),
           ),
           Positioned(
             left: 60,

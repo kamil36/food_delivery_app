@@ -16,21 +16,17 @@ class _ItemButtonSectionState extends State<ItemButtonSection> {
     return Padding(
       padding: const EdgeInsets.only(left: 50),
       child: InkWell(
-       onTap: () {
-  
-  context.go(
-    MyRoutes.razorpay,
-  );
-},
-
+        onTap: () {
+          context.go(MyRoutes.razorpay);
+        },
         child: Container(
           height: 50,
           width: 230,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: Color(0xff462B9C),
+            color: const Color(0xff462B9C),
           ),
-          child: Center(
+          child: const Center(
             child: Text(
               "Order",
               style: TextStyle(

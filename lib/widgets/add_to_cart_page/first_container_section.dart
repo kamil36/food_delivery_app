@@ -2,13 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/API/products%20models/api_model.dart';
-import 'package:food_delivery_app/models/product_model.dart';
 import 'package:food_delivery_app/routes/router_config.dart';
 import 'package:go_router/go_router.dart';
 
 class FirstContainerSection extends StatelessWidget {
   final Product product;
-  FirstContainerSection({super.key, required this.product});
+  const FirstContainerSection({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {

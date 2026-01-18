@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 
 class TotalSection extends StatelessWidget {
-  const TotalSection({super.key});
+  final String totalAmount;
+
+  const TotalSection({super.key, this.totalAmount = "0"});
 
   @override
   Widget build(BuildContext context) {
+    double subtotal = double.tryParse(totalAmount) ?? 0;
+    double tax = subtotal * 0.1; // 10% tax
+    double total = subtotal + tax;
+
     return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            const Text(
               "Subtotal",
               style: TextStyle(
                 fontFamily: 'Poppins',
@@ -20,8 +26,8 @@ class TotalSection extends StatelessWidget {
               ),
             ),
             Text(
-              "\$52",
-              style: TextStyle(
+              "₹${subtotal.toStringAsFixed(2)}",
+              style: const TextStyle(
                 fontFamily: 'Poppins',
                 color: Color(0xff868585),
                 fontWeight: FontWeight.w700,
@@ -30,13 +36,11 @@ class TotalSection extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
-          height: 10,
-        ),
+        const SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            const Text(
               "Tax 10%",
               style: TextStyle(
                 fontFamily: 'Poppins',
@@ -46,8 +50,8 @@ class TotalSection extends StatelessWidget {
               ),
             ),
             Text(
-              "\$5",
-              style: TextStyle(
+              "₹${tax.toStringAsFixed(2)}",
+              style: const TextStyle(
                 fontFamily: 'Poppins',
                 color: Color(0xff868585),
                 fontWeight: FontWeight.w700,
@@ -56,13 +60,11 @@ class TotalSection extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
-          height: 10,
-        ),
+        const SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            const Text(
               "Total",
               style: TextStyle(
                 fontFamily: 'Poppins',
@@ -72,8 +74,8 @@ class TotalSection extends StatelessWidget {
               ),
             ),
             Text(
-              "\$57",
-              style: TextStyle(
+              "₹${total.toStringAsFixed(2)}",
+              style: const TextStyle(
                 fontFamily: 'Poppins',
                 color: Color(0xffC9AA05),
                 fontWeight: FontWeight.w700,

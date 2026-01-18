@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/API/products%20models/api_model.dart';
-import 'package:food_delivery_app/models/product_model.dart';
-import 'package:food_delivery_app/pages/home_page.dart';
 import 'package:food_delivery_app/routes/router_config.dart';
+import 'package:food_delivery_app/services/cart_manager.dart';
 import 'package:food_delivery_app/widgets/add_to_cart_page/extra_item_section.dart';
 import 'package:go_router/go_router.dart';
 
 class SecondContainerSection extends StatefulWidget {
   final Product product;
 
-  SecondContainerSection({super.key, required this.product});
+  const SecondContainerSection({super.key, required this.product});
 
   @override
   State<SecondContainerSection> createState() => _SecondContainerSectionState();
@@ -94,15 +93,19 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 30),
-                  child: Text(
-                    widget.product.title,
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: Color(0xff000000),
-                      fontWeight: FontWeight.w500,
-                      fontSize: 25,
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      widget.product.title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        color: Color(0xff000000),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20,
+                      ),
                     ),
                   ),
                 ),
@@ -172,13 +175,22 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ExtraItem(
-                  img: "assets/img/bread.png",
+                  img: widget.product.images.length > 0
+                      ? widget.product.images[0]
+                      : widget.product.thumbnail,
+                  isNetworkImage: true,
                 ),
                 ExtraItem(
-                  img: "assets/img/souce_bottle.png",
+                  img: widget.product.images.length > 1
+                      ? widget.product.images[1]
+                      : widget.product.thumbnail,
+                  isNetworkImage: true,
                 ),
                 ExtraItem(
-                  img: "assets/img/souce_plate.png",
+                  img: widget.product.images.length > 2
+                      ? widget.product.images[2]
+                      : widget.product.thumbnail,
+                  isNetworkImage: true,
                 ),
               ],
             ),
@@ -189,6 +201,14 @@ class _SecondContainerSectionState extends State<SecondContainerSection> {
               padding: const EdgeInsets.only(left: 50),
               child: InkWell(
                 onTap: () {
+                  final qtyToAdd = counter > 0 ? counter : 1;
+                  CartManager().addItem(widget.product, qtyToAdd);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Added $qtyToAdd item(s) to cart!'),
+                      duration: const Duration(seconds: 2),
+                    ),
+                  );
                   context.go(MyRoutes.itempage);
                 },
                 child: Container(

@@ -27,16 +27,25 @@ class _LoginPageState extends State<LoginPage> {
         await _auth.signInWithEmailAndPassword(
             email: _emailController.text.trim(),
             password: _passController.text.trim());
+        if (!mounted) return;
         context.go(MyRoutes.navigate);
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text("Account Login Successfully!"),
         ));
       } catch (e) {
+        if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("Error: ${e.toString()}")),
         );
       }
     }
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passController.dispose();
+    super.dispose();
   }
 
   @override

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/routes/router_config.dart';
+import 'package:go_router/go_router.dart';
 
 class SearchFieldSection extends StatelessWidget {
   const SearchFieldSection({super.key});
@@ -18,6 +20,8 @@ class SearchFieldSection extends StatelessWidget {
         cursorHeight: 20,
         controller: _searchController,
         textAlign: TextAlign.justify,
+        readOnly: true,
+        onTap: () => context.push(MyRoutes.searchpage),
         decoration: InputDecoration(
           border: InputBorder.none,
           prefixIcon: Icon(Icons.search),

@@ -14,6 +14,14 @@ class NavigationPage extends StatefulWidget {
 int _selectedIndex = 0;
 
 class _NavigationPageState extends State<NavigationPage> {
+  @override
+  void initState() {
+    super.initState();
+    // Reset selected index when navigation page is opened so "Back to Menu"
+    // always shows the Home tab instead of a previously selected tab.
+    _selectedIndex = 0;
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;

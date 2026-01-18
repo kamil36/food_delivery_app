@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
 class StringSection extends StatelessWidget {
-  const StringSection({super.key});
+  final int itemCount;
+
+  const StringSection({super.key, this.itemCount = 0});
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      "2 Items in cart",
-      style: TextStyle(
+      '$itemCount Item${itemCount != 1 ? 's' : ''} in cart',
+      style: const TextStyle(
         fontFamily: 'Poppins',
         color: Color(0xff000000),
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w600,
         fontSize: 24,
       ),
     );

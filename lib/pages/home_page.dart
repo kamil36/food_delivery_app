@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/API/api%20services/api_services.dart';
 import 'package:food_delivery_app/API/products%20models/api_model.dart';
-import 'package:food_delivery_app/models/product_model.dart' hide Product;
-import 'package:food_delivery_app/widgets/home_page/bottom_navigation_bar.dart';
 import 'package:food_delivery_app/widgets/home_page/grid_view_section.dart';
 import 'package:food_delivery_app/widgets/home_page/list_view_section.dart';
 import 'package:food_delivery_app/widgets/home_page/profile_section.dart';
@@ -36,28 +34,25 @@ class _HomePageState extends State<HomePage> {
 
   void loadProducts() async {
     products = await ApiService().fetchProducts();
-    setState(() {
-      isLoading = false;
-    });
+    if (mounted) {
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
-                height: 20,
-              ),
-              ProfileSection(),
-              SizedBox(
-                height: 10,
-              ),
-              SearchFieldSection(),
-              SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20),
+              const ProfileSection(),
+              const SizedBox(height: 10),
+              const SearchFieldSection(),
+              const SizedBox(height: 20),
               isLoading
                   ? const Center(child: CircularProgressIndicator())
                   : ListViewSection(
@@ -65,19 +60,15 @@ class _HomePageState extends State<HomePage> {
                       selectedTileIndex: _selectedTileIndex,
                       products: products,
                     ),
-              TitleSection(title: "Promotions"),
-              SizedBox(
-                height: 5,
-              ),
-              PromotionCardSection(),
-              SizedBox(
-                height: 20,
-              ),
-              TitleSection(title: "Popular"),
+              const TitleSection(title: "Promotions"),
+              const SizedBox(height: 5),
+              const PromotionCardSection(),
+              const SizedBox(height: 20),
+              const TitleSection(title: "Popular"),
               isLoading
                   ? const Center(child: CircularProgressIndicator())
                   : GridViewSection(
-                      products: products, // 👈 PASS LIST HERE
+                      products: products,
                     ),
             ],
           ),

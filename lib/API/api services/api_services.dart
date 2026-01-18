@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:food_delivery_app/API/products%20models/api_model.dart';
-import 'package:food_delivery_app/models/product_model.dart' hide Product;
 import 'package:http/http.dart' as http;
 
 class ApiService {
